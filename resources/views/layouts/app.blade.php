@@ -11,7 +11,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
-        <a class="navbar-brand" href="#">Essay</a>
+        <a class="navbar-brand" href="{{ route('home') }}">Essay</a>
         <button class="navbar-toggler"
                 type="button"
                 data-bs-toggle="collapse"
