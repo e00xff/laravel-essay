@@ -12,9 +12,9 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-lg-3">
+            <div class="col-lg-4">
                 <div class="card mb-4">
-                    <div class="card-header">Categories</div>
+                    <div class="card-header">Topics</div>
                     <div class="card-body">
                         <div class="row">
                             <div class="col-sm-12">
@@ -32,16 +32,21 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-9">
+            <div class="col-lg-8">
                 <div class="row">
                     @foreach($essays as $essay)
                         <div class="col-lg-6">
                             <div class="card mb-4">
                                 <div class="card-body">
-                                    <h2 class="card-title h4">{{ $essay->title }}</h2>
+                                    <h5 class="card-title mb-3">
+                                        <a href="{{ route('essay.show', $essay->id) }}">
+                                            {{ $essay->title }}
+                                        </a>
+                                    </h5>
                                     <div class="small text-muted mb-3">{{ $essay->created_at }}</div>
-                                    <p class="card-text">{{ $essay->description }}</p>
-                                    <a class="btn btn-primary btn-sm" href="#!">Read more →</a>
+                                    <div class="d-block">
+                                        {!! Str::limit($essay->description, $limit = 150, $end = '...') !!}
+                                    </div>
                                 </div>
                             </div>
                         </div>
